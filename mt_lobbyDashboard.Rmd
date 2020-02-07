@@ -65,7 +65,14 @@ div(
     h4(
       "近期活動"
     )
-  ),
+    # 新期活動設計: 自行改成你們的路徑
+    ,includeHTML(
+      file.path(
+        root_file(),
+        "external/within_body",
+        "slider.html"
+      )
+    )    ),
   div(
     id='calendar',
     class="col s4 section2 hide",
@@ -83,8 +90,9 @@ div(
         root_file(),
         "external/within_body",
         "carousel.html"
-      )
-    )  ),
+        )
+      )  
+    ),
   div(
     id="officeInfo",
     class="col s4 section3 hide",

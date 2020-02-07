@@ -1,13 +1,4 @@
- function hide_show_timeout(triggerBtn,element1,element2,ms){
-    element1.classList.add('hide');
-    element2.classList.remove('hide');
-    triggerBtn.timeId=triggerBtn.setTimeout(function(){ 
-       element1.classList.remove('hide');
-       element2.classList.add('hide');
-    }, ms);
-}
-
-
+ 
 window.onload=function(){
  
   var ms=8000; //m-second for timeOut
@@ -31,14 +22,14 @@ window.onload=function(){
     } else {
       //second click to extend timeout
       clearTimeout(this.timeId);
-      console.log(section3Status)
+      console.log(section3Status);
       this.timeId=setTimeout(function(){
         el1.classList.remove('hide');
         el2.classList.add('hide');
       }, ms);
     }
     //var timeId=hide_show_timeout(el1,el2,ms);
-    section3Status=='poster';
+    section3Status='poster';
   });
   
   //行事曆按鈕
@@ -52,7 +43,7 @@ window.onload=function(){
       el3.classList.add('hide');
       el4.classList.remove('hide');
       section2Status='calendar';
-      console.log(section2Status)
+      console.log(section2Status);
       this.timeId=setTimeout(function(){
         el3.classList.remove('hide');
         el4.classList.add('hide');},
@@ -66,7 +57,7 @@ window.onload=function(){
         el4.classList.add('hide');
       }, ms);
     }
-    section2Status=='latestEvent';
+    section2Status='latestEvent';
   });
  
   

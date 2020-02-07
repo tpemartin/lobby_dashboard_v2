@@ -1,0 +1,110 @@
+---
+output: 
+  html_document:
+    theme: null
+    highlight: null
+    mathjax: null
+    self_contained: false
+    includes:
+      in_header: "external/in_header/header.html"
+      before_body: "external/before_body/before_body.html"
+      after_body: "external/after_body/after_body.html"
+params:
+  output_filename: "mt_lobbyDashboard.html"
+---
+
+
+```{r local serve, eval=F, echo=F}
+servr::daemon_stop(
+  which=servr::daemon_list()
+)
+servr::httd(dir=".",port=8800,initpath=params$output_filename)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+
+# 設定project root尋找函數root_file() -------------------------------------------
+root <- rprojroot::is_rstudio_project
+root_file <- root$make_fix_file()
+
+library(dplyr); library(htmltools)
+```
+
+
+```{css, eval=T}
+.section1 {
+  background-color: lightblue;
+  height: 2000px;
+}
+.section2 {
+  background-color: #ede7f6;
+  height: 2000px;
+}
+.section3 {
+  background-color: #e0f2f1;
+  height: 2000px;
+}
+```
+
+<header></header>
+<main>
+```{r main}
+div(
+  class='row',
+ div(
+    class="col s4 section1",
+    h4(
+      "USR園地"
+    )
+  ),
+  div(
+    id='latestEvent',
+    class="col s4 section2",
+    h4(
+      "近期活動"
+    )
+  ),
+  div(
+    id='calendar',
+    class="col s4 section2 hide",
+    h4(
+      "行事曆"
+    )
+  ),
+  div(
+    id="poster",
+    class="col s4 section3",# scale-transition scale-in",
+    h4("海報")
+  ),
+  div(
+    id="officeInfo",
+    class="col s4 section3 hide",
+    h4("單位資訊")
+  ) 
+)
+```
+
+</main>
+
+<footer style="position: fixed; bottom: 0px">
+```{r}
+div(
+  class='row',
+  div(
+    class="col",
+    includeHTML(
+      file.path(
+        root_file(),
+        "external/within_body",
+        "buttons.html"
+      )
+    )
+  )  
+)
+
+```
+
+
+</footer>

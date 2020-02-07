@@ -14,16 +14,16 @@ window.onload=function(){
       el1.classList.add('hide');
       el2.classList.remove('hide');
       section3Status='officeInfo';
-      console.log(section3Status)
-      this.timeId=setTimeout(function(){
+      console.log(section3Status);
+      window.timeId3=setTimeout(function(){
         el1.classList.remove('hide');
         el2.classList.add('hide');},
         ms);
     } else {
       //second click to extend timeout
-      clearTimeout(this.timeId);
+      clearTimeout(window.timeId3);
       console.log(section3Status);
-      this.timeId=setTimeout(function(){
+      window.timeId3=setTimeout(function(){
         el1.classList.remove('hide');
         el2.classList.add('hide');
       }, ms);
@@ -44,15 +44,15 @@ window.onload=function(){
       el4.classList.remove('hide');
       section2Status='calendar';
       console.log(section2Status);
-      this.timeId=setTimeout(function(){
+      window.timeId2=setTimeout(function(){
         el3.classList.remove('hide');
         el4.classList.add('hide');},
         ms);
     } else {
       //second click to extend timeout
-      clearTimeout(this.timeId);
-      console.log(section2Status)
-      this.timeId=setTimeout(function(){
+      clearTimeout(window.timeId2);
+      console.log(section2Status);
+      window.timeId2=setTimeout(function(){
         el3.classList.remove('hide');
         el4.classList.add('hide');
       }, ms);
@@ -66,6 +66,10 @@ window.onload=function(){
   btnHome.addEventListener("click",function(){
     section3Status='poster';
     section2Status='latestEvent';
+    clearTimeout(window.timeId2);
+    clearTimeout(window.timeId3);
+    console.log(section2Status);
+    console.log(section3Status);
     el4.classList.add('hide');
     el3.classList.remove('hide');
     el1.classList.remove('hide');

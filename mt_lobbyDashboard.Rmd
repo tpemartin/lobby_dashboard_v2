@@ -77,11 +77,26 @@ div(
     id="poster",
     class="col s4 section3",# scale-transition scale-in",
     h4("海報")
-  ),
+    # 海報設計: 自行改成你們的路徑
+    ,includeHTML(
+      file.path(
+        root_file(),
+        "external/within_body",
+        "carousel.html"
+      )
+    )  ),
   div(
     id="officeInfo",
     class="col s4 section3 hide",
-    h4("單位資訊")
+    h4("單位資訊") 
+    # 單位資訊設計: 自行改成你們的路徑
+    ,includeHTML(
+      file.path(
+        root_file(),
+        "external/within_body",
+        "collapse.html"
+      )
+    )
   ) 
 )
 ```

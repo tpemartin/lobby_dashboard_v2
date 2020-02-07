@@ -1,0 +1,12 @@
+---
+title: "index page"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Project pages
+
+https://tpemartin.github.io/lobby_dashboard_v2/mt_lobbyDashboard.html
